@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+/*
+  Ditch Rider Brewing & Kitchen: "canal-side taproom, western-modern".
+  Stout-dark and kraft-paper neutrals, a brick-red accent from the old
+  headgate paint, lager straw for highlights, and canal blue for water.
+  Big Shoulders (condensed, sign-painter industrial) for display,
+  Archivo for the interface, and Instrument Serif italic for small asides.
+*/
+@theme {
+  --color-stout: #16120e;
+  --color-stout-2: #211a14;
+  --color-stout-3: #2e251d;
+  --color-paper: #fbf7ef;
+  --color-foam: #f3ebdc;
+  --color-kraft: #e9dcc3;
+  --color-line: #dccdb2;
+  --color-ink: #1b1510;
+  --color-dust: #665a4b;
+  --color-haze: #b9ac98;
+  --color-brick: #b8391f;
+  --color-brick-deep: #a8331b;
+  --color-brick-light: #ef7b5c;
+  --color-straw: #e8b64a;
+  --color-straw-soft: #f5dea6;
+  --color-hop: #5f6a1c;
+  --color-hop-soft: #e3e6c6;
+  --color-hop-bright: #c9d36b;
+  --color-canal: #2d5d6b;
+  --color-canal-soft: #d6e4e6;
+  --color-canal-light: #a9c3cb;
+  --color-open: #58b368;
+
+  --font-display: var(--font-big-shoulders), "Arial Narrow", ui-sans-serif, sans-serif;
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+
+  --animate-rise: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-pour: pour 1.2s cubic-bezier(0.3, 0.7, 0.2, 1) both;
+  --animate-bubble: bubble 3.5s ease-in infinite;
+  --animate-pulse-open: pulse-open 2s ease-in-out infinite;
+
+  /* Transform only: fading text in would delay LCP and fail contrast checks mid-animation. */
+  @keyframes rise {
+    from {
+      transform: translateY(12px);
+    }
+    to {
+      transform: none;
+    }
+  }
+  @keyframes slide-up {
+    from {
+      transform: translateY(18px);
+    }
+    to {
+      transform: none;
+    }
+  }
+  @keyframes pour {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+  @keyframes bubble {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-90px);
+      opacity: 0;
+    }
+  }
+  @keyframes pulse-open {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgb(88 179 104 / 0.55);
+    }
+    60% {
+      box-shadow: 0 0 0 7px rgb(88 179 104 / 0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-foam);
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: 0.005em;
+    line-height: 0.95;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-straw);
+    color: var(--color-stout);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-straw);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility wrap {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility section-y {
+  padding-block: 4.5rem;
+  @media (width >= 64rem) {
+    padding-block: 6.5rem;
+  }
+}
+
+/* Stencil-style label above headings. */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 8vw, 6.6rem);
+  line-height: 0.86;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+@utility h-section {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+  line-height: 0.9;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Small editorial aside: "est. 2021", pairing notes. */
+@utility aside {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Kraft-paper grain for light sections. */
+@utility grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.12 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Warm taproom glow behind dark sections. */
+@utility glow {
+  background-image: radial-gradient(
+    ellipse at var(--glow-x, 75%) var(--glow-y, 20%),
+    rgb(232 182 74 / 0.16),
+    rgb(184 57 31 / 0.07) 40%,
+    transparent 70%
+  );
+}
+
+/* Double-rule frame, like the border on a beer label. */
+@utility label-frame {
+  box-shadow:
+    inset 0 0 0 1px var(--frame, var(--color-line)),
+    inset 0 0 0 5px transparent,
+    inset 0 0 0 6px var(--frame, var(--color-line));
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--color-straw);
+  color: var(--color-stout);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Wavy canal line used as a section divider. */
+.canal-rule {
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='12' viewBox='0 0 48 12'%3E%3Cpath d='M0 6c6 0 6-4 12-4s6 4 12 4 6-4 12-4 6 4 12 4' fill='none' stroke='%232d5d6b' stroke-width='2'/%3E%3C/svg%3E")
+    repeat-x center / 48px 12px;
+}
+.canal-rule-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='12' viewBox='0 0 48 12'%3E%3Cpath d='M0 6c6 0 6-4 12-4s6 4 12 4 6-4 12-4 6 4 12 4' fill='none' stroke='%23a9c3cb' stroke-width='2' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* Scroll reveal: a short slide with no fade, so text is never shown at low contrast. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: slide-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+/* Print just the page content (the flight card, the to-go order). */
+@media print {
+  body > header,
+  body > footer,
+  body > div.fixed,
+  body > [role="status"],
+  .skip-link,
+  .print-hidden {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+}

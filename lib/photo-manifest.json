@@ -1,0 +1,242 @@
+{
+  "amber": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "bites": {
+    "width": 960,
+    "height": 1449,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "burger-board": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "burger": {
+    "width": 960,
+    "height": 721,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "burgers-table": {
+    "width": 960,
+    "height": 720,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "chicken": {
+    "width": 960,
+    "height": 810,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "dark-tulip": {
+    "width": 960,
+    "height": 1279,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "dog-sign": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "field": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "firepit": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "fries": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "grill": {
+    "width": 960,
+    "height": 564,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "hazy": {
+    "width": 960,
+    "height": 636,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "mug-outdoors": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "onion-rings": {
+    "width": 960,
+    "height": 674,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "pilsner": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "stage": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "steak-frites": {
+    "width": 960,
+    "height": 641,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "stout": {
+    "width": 960,
+    "height": 720,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "string-lights": {
+    "width": 960,
+    "height": 720,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "tap-pour": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "taproom": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "trail-dog": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  },
+  "wheat": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      480,
+      640,
+      800,
+      960
+    ]
+  }
+}
