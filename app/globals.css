@@ -265,3 +265,13 @@
 ::view-transition-new(root) {
   animation-duration: 0.25s;
 }
+
+/* Show-night banner: hidden unless the inline script in the layout marked <html data-show>
+   before first paint (components/ShowBanner.tsx), so it never pushes the page down late. */
+.show-banner {
+  display: none;
+}
+
+html[data-show] .show-banner {
+  display: block;
+}
