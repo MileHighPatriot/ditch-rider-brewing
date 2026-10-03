@@ -68,6 +68,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <aside aria-label="Concept project notice" className="border-b border-line bg-kraft text-ink">
+          <p className="wrap py-2 text-sm leading-5 text-pretty">
+            Concept project: a sample site built by 5280 Web Solutions. Ditch Rider Brewing &amp; Kitchen is not a real
+            company.{" "}
+            <a href="https://5280webs.com" className="font-bold whitespace-nowrap text-brick-deep underline underline-offset-4 hover:text-ink">
+              See more at 5280webs.com
+            </a>
+          </p>
+        </aside>
         <ShowBanner />
         <Header />
         <ViewTransition>

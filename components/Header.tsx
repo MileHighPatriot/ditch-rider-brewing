@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
 import Logo from "@/components/Logo";
 import StatusStrip from "@/components/StatusStrip";
@@ -12,6 +12,11 @@ import { site } from "@/data/site";
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  // The concept bar (and the show-night banner) above the header change height from screen to
+  // screen, so the phone menu is placed at the header's measured bottom edge (top-[7.35rem] is the fallback).
+  const headerRef = useRef<HTMLElement>(null);
+  const [menuTop, setMenuTop] = useState<number>();
+  const placeMenu = () => setMenuTop(headerRef.current?.getBoundingClientRect().bottom);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- close the menu after navigating
@@ -20,15 +25,17 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    if (open) window.addEventListener("resize", placeMenu);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("resize", placeMenu);
     };
   }, [open]);
 
   const isActive = (href: string) => pathname.startsWith(href.replace(/\/$/, ""));
 
   return (
-    <header className="relative z-40 bg-stout text-paper">
+    <header ref={headerRef} className="relative z-40 bg-stout text-paper">
       <div className="border-b border-paper/10">
         <div className="wrap flex min-h-10 items-center justify-between gap-4 py-2 text-[0.85rem]">
           <StatusStrip />
@@ -76,7 +83,10 @@ export default function Header() {
             className="inline-flex min-h-11 items-center gap-2 rounded-md px-3 ring-1 ring-paper/25 ring-inset lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => {
+              placeMenu();
+              setOpen((v) => !v);
+            }}
           >
             <Icon name={open ? "close" : "menu"} />
             <span className="text-sm font-bold tracking-wide uppercase">{open ? "Close" : "Menu"}</span>
@@ -84,7 +94,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div id="mobile-menu" hidden={!open} className="fixed inset-x-0 top-[7.35rem] bottom-0 overflow-y-auto bg-stout text-paper lg:hidden">
+      <div id="mobile-menu" hidden={!open} style={menuTop === undefined ? undefined : { top: menuTop }} className="fixed inset-x-0 top-[7.35rem] bottom-0 overflow-y-auto bg-stout text-paper lg:hidden">
         <nav aria-label="Mobile" className="wrap py-6">
           <ul className="grid gap-0.5">
             {[...nav, { href: "/to-go/", label: "Order to go" }, { href: "/mug-club/", label: "Mug Club" }, { href: "/about/", label: "Our story" }].map((item) => (

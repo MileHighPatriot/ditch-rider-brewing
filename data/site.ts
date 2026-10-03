@@ -1,7 +1,8 @@
 /**
  * Single edit point for business details. Ditch Rider is a fictional brewpub
  * built as a portfolio concept: phone numbers use the 555-01xx fiction range
- * and the address is illustrative.
+ * and the street is made up (no ZIP), so the site never points at a real building.
+ * Maps links search only the city and state.
  */
 export const site = {
   name: "Ditch Rider Brewing & Kitchen",
@@ -15,21 +16,20 @@ export const site = {
   email: "hello@ditchrider.example",
   eventsEmail: "events@ditchrider.example",
   address: {
-    street: "5690 S Greenwood Plaza Blvd",
+    street: "1200 Example Ridge Rd",
     city: "Greenwood Village",
     region: "CO",
-    postal: "80111",
   },
   geo: { lat: 39.6089, lon: -104.8938 },
-  lightRail: "3-minute walk from Orchard Station (E and H lines). Head south on Greenwood Plaza Blvd.",
+  lightRail: "3-minute walk from Orchard Station (E and R lines). Head south on Greenwood Plaza Blvd.",
   parking: "Free 3-hour parking in the garage behind us. Grab a validation ticket at the bar.",
   bikes: "Covered bike racks and a repair stand by the patio gate. The High Line Canal trail is 6 minutes by bike.",
   founded: 2021,
   instagram: "https://instagram.com/ditchriderbrewing",
 };
 
-export const fullAddress = `${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postal}`;
-export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
+export const fullAddress = `${site.address.street}, ${site.address.city}, ${site.address.region}`;
+export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.address.city}, ${site.address.region}`)}`;
 
 /**
  * Opening hours, Denver time. Day: 0 = Sunday. The kitchen closes an hour

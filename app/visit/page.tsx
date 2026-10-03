@@ -140,7 +140,7 @@ export default function VisitPage() {
           <SectionHead light eyebrow="Getting here" title="Three ways in. One of them has beer at the end." />
           <ul className="mt-12 grid gap-4 md:grid-cols-3">
             {[
-              { icon: "train", title: "Light rail", body: site.lightRail, note: "E and H lines · check RTD for late-night trains" },
+              { icon: "train", title: "Light rail", body: site.lightRail, note: "E and R lines · check RTD for late-night trains" },
               { icon: "car", title: "Parking", body: site.parking, note: "Rideshare pickup at the front door" },
               { icon: "bike", title: "Bike", body: site.bikes, note: "Saturday run club leaves at 8am" },
             ].map((w) => (

@@ -15,7 +15,7 @@ const fmt = (iso: string) => new Date(`${iso}:00`).toLocaleDateString("en-US", {
 const policies = [
   { icon: "dog", title: "Dogs on the patio", body: "Water bowls and biscuits at the gate. Inside is humans only (Colorado rules, not ours)." },
   { icon: "child", title: "Kids welcome", body: "Kids menu, crayons, and lawn games. Minors with an adult until 9pm." },
-  { icon: "train", title: "3 min from light rail", body: "Orchard Station, E and H lines. Ride home, no parking needed." },
+  { icon: "train", title: "3 min from light rail", body: "Orchard Station, E and R lines. Ride home, no parking needed." },
   { icon: "bike", title: "Bike racks & a repair stand", body: "Six minutes from the High Line Canal trail. Post-ride pint encouraged." },
 ];
 
