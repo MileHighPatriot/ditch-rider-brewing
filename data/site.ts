@@ -21,7 +21,7 @@ export const site = {
     region: "CO",
   },
   geo: { lat: 39.6089, lon: -104.8938 },
-  lightRail: "3-minute walk from Orchard Station (E and R lines). Head south on Greenwood Plaza Blvd.",
+  lightRail: "3-minute walk from Orchard Station (E and R lines).",
   parking: "Free 3-hour parking in the garage behind us. Grab a validation ticket at the bar.",
   bikes: "Covered bike racks and a repair stand by the patio gate. The High Line Canal trail is 6 minutes by bike.",
   founded: 2021,

@@ -26,7 +26,7 @@ export default function ShowBanner() {
         <Icon name="ticket" className="mt-0.5 h-5 w-5 shrink-0" />
         <p className="flex-1">
           <strong>Show night at the amphitheater.</strong> Pre-show dinner: order by 6 and we&rsquo;ll have you out the door by 6:45.
-          It&rsquo;s a 12-minute walk up Greenwood Plaza Blvd.
+          It&rsquo;s a 12-minute walk to the amphitheater.
         </p>
         <button
           type="button"

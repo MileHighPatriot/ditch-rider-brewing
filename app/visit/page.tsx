@@ -40,7 +40,7 @@ const faqs = [
   ["Do you take reservations?", "For groups of 8 or more, and for the Headgate Room and the patio buyout. Everyone else, walk right in."],
   ["Is there a gluten-free beer?", "Rider Light is gluten-reduced (under 20 ppm). That's fine for the gluten-shy but not safe for celiac. The kitchen marks gluten-free dishes, though our fryer is shared."],
   ["Can I bring my own food?", "Birthday cakes, yes, with no fee. Otherwise the kitchen's got you."],
-  ["What about amphitheater nights?", "The patio fills early. Order dinner by 6 and we'll have you out the door by 6:45; it's a 12-minute walk up Greenwood Plaza Blvd."],
+  ["What about amphitheater nights?", "The patio fills early. Order dinner by 6 and we'll have you out the door by 6:45; it's a 12-minute walk to the amphitheater."],
 ];
 
 export default function VisitPage() {
